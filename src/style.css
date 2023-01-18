@@ -1,3 +1,27 @@
+html {
+  height: 100%;
+}
+
 body {
-  background-image: url('./bg.jpg');
+  background-image: url('./bg4.jpeg');
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: black;
+  height: 100%;
+}
+
+.analog-clock {
+  --clock-size: 416px;
+
+  position: absolute;
+  top: calc(50% - var(--clock-size) / 2 - 5px);
+  left: calc(50% - var(--clock-size) / 2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: pink;
+  width: var(--clock-size);
+  height: var(--clock-size);
+  border-radius: 50%;
 }
