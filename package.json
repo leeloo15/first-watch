@@ -1,0 +1,19 @@
+{
+  "name": "first-watch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leeloo15/first-watch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leeloo15/first-watch/issues"
+  },
+  "homepage": "https://github.com/leeloo15/first-watch#readme"
+}
