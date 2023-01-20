@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-image: url('./bg4.jpeg');
+  background-image: url('./bg.jpg');
   background-color: black;
   background-position: center;
   background-repeat: no-repeat;
@@ -13,15 +13,105 @@ body {
 
 .analog-clock {
   --clock-size: 350px;
+  --r: calc(var(--clock-size) / 2);
+  --hour-size: 20px;
+  --hour-size-half: calc(var(--hour-size) / 2);
 
   position: absolute;
   top: calc(50% - var(--clock-size) / 2 - 4px);
   left: calc(50% - var(--clock-size) / 2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: pink;
+  background-color: black;
   width: var(--clock-size);
   height: var(--clock-size);
   border-radius: 50%;
+}
+
+/* clock-center l-am scris doar ca sa am o orientare pentru mainile de ceas */
+/* .clock-center {
+  --center-size: 10px;
+  --center-size-half: calc(var(--center-size) / 2);
+  width: var(--center-size);
+  height: var(--center-size);
+  background-color: seashell;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(var(--r) - var(--center-size-half));
+  left: calc(var(--r) - var(--center-size-half));
+} */
+
+.hour-hand {
+  --width: 30px;
+  --height: calc(var(--width) * 681 / 173);
+  background-image: url('./hour-hand-white.png');
+  background-size: 100%;
+  width: var(--width);
+  /* aspect ratio: 173 e width img, 681 e height img */
+  aspect-ratio: 173 / 681;
+  position: absolute;
+  left: calc(var(--r) - (var(--width) / 2));
+  /* 0.11 =  75/681; 75 e distanta din centrul cercului mainii de ceas pana la baza cercului mainii de ceas*/
+  top: calc(var(--r) - var(--height) + 0.11 * var(--height));
+}
+
+.hour {
+  font-weight: 700;
+  font-family: sans-serif;
+  color: seashell;
+  width: var(--hour-size);
+  height: var(--r);
+  position: absolute;
+  top: 0px;
+  left: calc(var(--r) - var(--hour-size-half));
+  rotate: var(--angle);
+  transform-origin: 50% 100%;
+}
+
+.hour span {
+  display: flex;
+  justify-content: center;
+  rotate: calc(-1 * var(--angle));
+}
+
+.hour-1 {
+  --angle: 30deg;
+}
+
+.hour-2 {
+  --angle: 60deg;
+}
+
+.hour-3 {
+  --angle: 90deg;
+}
+
+.hour-4 {
+  --angle: 120deg;
+}
+
+.hour-5 {
+  --angle: 150deg;
+}
+
+.hour-6 {
+  --angle: 180deg;
+}
+
+.hour-7 {
+  --angle: 210deg;
+}
+
+.hour-8 {
+  --angle: 240deg;
+}
+
+.hour-9 {
+  --angle: 270deg;
+}
+
+.hour-10 {
+  --angle: 300deg;
+}
+
+.hour-11 {
+  --angle: 330deg;
 }

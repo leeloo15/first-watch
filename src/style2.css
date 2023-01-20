@@ -1,0 +1,172 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-image: url('./bg.jpg');
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: black;
+  height: 100%;
+}
+
+.analog-clock {
+  --clock-size: 350px;
+  --clock-center: calc(var(--clock-size) / 2);
+  /* --v1: 151.5px;
+  --v2: 87.5px; */
+  /* 0.866 este cos de 30deg */
+  --v1: calc(var(--clock-center) * 0.866);
+  /* 0.5 e sin de 30deg */
+  --v2: calc(var(--clock-center) * 0.5);
+
+  --hour-size: 20px;
+  --hour-size-half: calc(var(--hour-size) / 2);
+  --offset: 10px;
+
+  position: absolute;
+  top: calc(50% - var(--clock-size) / 2 - 4px);
+  left: calc(50% - var(--clock-size) / 2);
+  background-color: black;
+  width: var(--clock-size);
+  height: var(--clock-size);
+  border-radius: 50%;
+}
+
+.clock-center {
+  --center-size: 10px;
+  --center-size-half: calc(var(--center-size) / 2);
+  width: var(--center-size);
+  height: var(--center-size);
+  background-color: seashell;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(var(--clock-center) - var(--center-size-half));
+  left: calc(var(--clock-center) - var(--center-size-half));
+}
+
+.hour-hand {
+  background-image: ;
+}
+
+.hour {
+  position: absolute;
+  font-weight: 700;
+  font-family: sans-serif;
+  color: seashell;
+  width: var(--hour-size);
+  height: var(--hour-size);
+  /* border: 1px solid seashell; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .hour div {
+  position: absolute;
+  width: 4px;
+  height: 10px;
+  background-color: seashell;
+} */
+
+.hour-1 {
+  top: calc(
+    var(--clock-center) - var(--v1) - var(--hour-size-half) + var(--offset)
+  );
+  left: calc(
+    var(--clock-center) + var(--v2) - var(--hour-size-half) - var(--offset)
+  );
+}
+
+/* .hour-1 div {
+  top: calc(-1 * var(--offset) + 10px);
+  left: calc(1 * var(--offset) - 10px);
+  rotate: 30deg;
+} */
+
+.hour-12 {
+  top: calc(0px - var(--hour-size-half) + var(--offset));
+  left: calc(var(--clock-center) - var(--hour-size-half));
+}
+
+.hour-2 {
+  top: calc(
+    var(--clock-center) - var(--v2) - var(--hour-size-half) + var(--offset)
+  );
+  left: calc(
+    var(--clock-center) + var(--v1) - var(--hour-size-half) - var(--offset)
+  );
+}
+
+.hour-3 {
+  top: calc(var(--clock-center) - var(--hour-size-half));
+  left: calc(
+    var(--clock-center) + var(--clock-center) - var(--hour-size-half) -
+      var(--offset)
+  );
+}
+
+.hour-4 {
+  top: calc(
+    var(--clock-center) + var(--v2) - var(--hour-size-half) - var(--offset)
+  );
+  left: calc(
+    var(--clock-center) + var(--v1) - var(--hour-size-half) - var(--offset)
+  );
+}
+
+.hour-5 {
+  top: calc(
+    var(--clock-center) + var(--v1) - var(--hour-size-half) - var(--offset)
+  );
+  left: calc(
+    var(--clock-center) + var(--v2) - var(--hour-size-half) - var(--offset)
+  );
+}
+
+.hour-6 {
+  top: calc(var(--clock-size) - var(--hour-size-half) - var(--offset));
+  left: calc(var(--clock-center) - var(--hour-size-half));
+}
+
+.hour-7 {
+  top: calc(
+    var(--clock-center) + var(--v1) - var(--hour-size-half) - var(--offset)
+  );
+  left: calc(
+    var(--clock-center) - var(--v2) - var(--hour-size-half) + var(--offset)
+  );
+}
+
+.hour-8 {
+  top: calc(
+    var(--clock-center) + var(--v2) - var(--hour-size-half) - var(--offset)
+  );
+  left: calc(
+    var(--clock-center) - var(--v1) - var(--hour-size-half) + var(--offset)
+  );
+}
+
+.hour-9 {
+  top: calc(var(--clock-center) - var(--hour-size-half));
+  left: calc(0px - var(--hour-size-half) + var(--offset));
+}
+
+.hour-10 {
+  top: calc(
+    var(--clock-center) - var(--v2) - var(--hour-size-half) + var(--offset)
+  );
+  left: calc(
+    var(--clock-center) - var(--v1) - var(--hour-size-half) + var(--offset)
+  );
+}
+
+.hour-11 {
+  top: calc(
+    var(--clock-center) - var(--v1) - var(--hour-size-half) + var(--offset)
+  );
+  left: calc(
+    var(--clock-center) - var(--v2) - var(--hour-size-half) + var(--offset)
+  );
+}
