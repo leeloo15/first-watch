@@ -28,7 +28,9 @@ function myTime() {
     `${hourDegree * hours + (hourDegree * minutes) / 60}deg`,
   );
 
-  const time = `${hours} : ${minutes} : ${seconds}`;
+  const time = `${hours.toString().padStart(2, '0')} : ${minutes
+    .toString()
+    .padStart(2, '0')} : ${seconds.toString().padStart(2, '0')}`;
   const digitalClock = document.querySelector('.digital-clock');
   digitalClock.innerText = time;
 
