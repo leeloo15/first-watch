@@ -16,11 +16,14 @@ body {
   --r: calc(var(--clock-size) / 2);
   --hour-size: 20px;
   --hour-size-half: calc(var(--hour-size) / 2);
+  --hour-angle: 0deg;
+  --minute-angle: 0deg;
+  --seconds-angle: 0deg;
 
   position: absolute;
   top: calc(50% - var(--clock-size) / 2 - 4px);
   left: calc(50% - var(--clock-size) / 2);
-  background-color: black;
+  /* background-color: black; */
   width: var(--clock-size);
   height: var(--clock-size);
   border-radius: 50%;
@@ -32,7 +35,7 @@ body {
   --center-size-half: calc(var(--center-size) / 2);
   width: var(--center-size);
   height: var(--center-size);
-  background-color: seashell;
+  background-color: blueviolet;
   border-radius: 50%;
   position: absolute;
   top: calc(var(--r) - var(--center-size-half));
@@ -40,7 +43,10 @@ body {
 } */
 
 .hour-hand {
-  --width: 30px;
+  /* display: none; */
+  /* am stabilit ca un width de 25px e cel mai ok vizual, dar pentru a fi responsive am setat width-ul ca procent:
+  25px = aprox 7% din dimensiunea ceasului de 350px*/
+  --width: calc(var(--clock-size) * 0.07);
   --height: calc(var(--width) * 681 / 173);
   background-image: url('./hour-hand-white.png');
   background-size: 100%;
@@ -51,10 +57,52 @@ body {
   left: calc(var(--r) - (var(--width) / 2));
   /* 0.11 =  75/681; 75 e distanta din centrul cercului mainii de ceas pana la baza cercului mainii de ceas*/
   top: calc(var(--r) - var(--height) + 0.11 * var(--height));
+  rotate: var(--hour-angle);
+  transform-origin: 50% 89%;
+  opacity: 50%;
+}
+
+.minute-hand {
+  /* display: none; */
+  /* am stabilit ca un width de 25px e cel mai ok vizual, dar pentru a fi responsive am setat width-ul ca procent:
+  25px = aprox 7% din dimensiunea ceasului de 350px*/
+  --minute-width: calc(var(--clock-size) * 0.07);
+  --minute-height: calc(var(--minute-width) * 851 / 141);
+  background-image: url('./minute-hand.png');
+  background-size: 100%;
+  width: var(--minute-width);
+  height: var(--minute-height);
+  /* aspect ratio: 143 e width img, 851 e height img */
+  aspect-ratio: 141 / 851;
+  position: absolute;
+  left: calc(var(--r) - (var(--minute-width) / 2));
+  /* 0.076 = 65/851; 65 e distanta din centrul cercului mainii de ceas pana la baza cercului mainii de ceas */
+  top: calc(var(--r) - var(--minute-height) + 0.076 * var(--minute-height));
+  rotate: var(--minute-angle);
+  transform-origin: 50% 92.4%;
+  opacity: 50%;
+}
+
+.seconds-hand {
+  /* display: none; */
+  /* am scazut de la 25 la 21px pt seconds-width: 350 * 6/100 = 21px */
+  --seconds-width: calc(var(--clock-size) * 0.06);
+  --seconds-height: calc(var(--seconds-width) * 454 / 44);
+  background-image: url('./seconds-hand.png');
+  background-size: 100%;
+  width: var(--second-width);
+  height: var(--seconds-height);
+  aspect-ratio: 44 / 454;
+  position: absolute;
+  left: calc(var(--r) - (var(--seconds-width) / 2));
+  top: calc(var(--r) - var(--seconds-height) + 0.29 * var(--seconds-height));
+  transform-origin: 50% 71%;
+  rotate: var(--seconds-angle);
+  opacity: 50%;
 }
 
 .hour {
-  font-weight: 700;
+  font-size: 20px;
   font-family: sans-serif;
   color: seashell;
   width: var(--hour-size);
@@ -114,4 +162,23 @@ body {
 
 .hour-11 {
   --angle: 330deg;
+}
+
+.digital {
+  font-size: 20px;
+  font-family: sans-serif;
+  color: seashell;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  top: calc(var(--clock-size) - var(--clock-size) / 3.4);
+}
+
+.digital-clock,
+.today-date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
