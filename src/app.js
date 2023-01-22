@@ -4,7 +4,7 @@ function myTime() {
   const minutes = date.getMinutes();
   const seconds = date.getSeconds();
   const year = date.getFullYear();
-  const day = date.getDay();
+  const day = date.getDate();
 
   // 360deg cerc / 60sec
   const secondDegree = (1 * 360) / 60;
