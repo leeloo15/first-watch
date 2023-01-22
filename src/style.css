@@ -29,7 +29,8 @@ body {
   border-radius: 50%;
 }
 
-/* clock-center l-am scris doar ca sa am o orientare pentru mainile de ceas */
+/* clock-center l-am scris doar ca sa am o orientare pentru pozitionarea acelor de ceas
+pastrez codul in cazul in care voi vrea sa il fac vizibil */
 /* .clock-center {
   --center-size: 10px;
   --center-size-half: calc(var(--center-size) / 2);
@@ -118,6 +119,8 @@ body {
 .hour span {
   display: flex;
   justify-content: center;
+  /* calc(-1 * var(--angle)) e un calcul adaugat a.i. orele sa se intoarca in pozitia initiala
+  intrucat unghiurile aplicate pentru pozitionarea orelor intorceau si textul din spanuri*/
   rotate: calc(-1 * var(--angle));
 }
 
@@ -175,6 +178,7 @@ body {
   width: 100%;
   justify-content: center;
   flex-direction: column;
+  /* 3.4 aplicat a.i ceasul digital sa stea intr-o pozitie optima */
   top: calc(var(--clock-size) - var(--clock-size) / 3.4);
 }
 
