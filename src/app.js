@@ -41,4 +41,5 @@ function myTime() {
   todayDate.innerText = today;
 }
 
+myTime();
 setInterval(myTime, 1000);
